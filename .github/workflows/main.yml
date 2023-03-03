@@ -32,7 +32,7 @@ jobs:
           cp package.json ./dist
           cp src/*.json ./dist
           cp LICENSE ./dist
-          cp readme.md ./dist
+          cp README.md ./dist
           cd ./dist
           npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
           npm publish --access public --ignore-scripts
