@@ -1,0 +1,14 @@
+{
+	"splitting": false,
+	"clean": true,
+	"sourcemap": false,
+	"treeshake": true,
+	"dts": true,
+	"entry": [
+		"src/index.ts"
+	],
+	"format": [
+		"esm",
+		"cjs"
+	]
+}

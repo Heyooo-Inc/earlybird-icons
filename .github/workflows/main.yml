@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    if: "contains(github.event.head_commit.message, 'release:')"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        id: pnpm-install
+        with:
+          version: 7
+          run_install: false
+
+      - name: Publish
+        run: |
+          pnpm install
+          pnpm build
+          cp package.json ./dist
+          cp src/*.json ./dist
+          cp LICENSE ./dist
+          cp readme.md ./dist
+          cd ./dist
+          npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
+          npm publish --access public --ignore-scripts
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
