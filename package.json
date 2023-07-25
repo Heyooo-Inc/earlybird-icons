@@ -18,7 +18,7 @@
   "scripts": {
     "dev": "npm run build:icon && vite",
     "build": "npm run build:icon && tsup",
-    "build:website": "npm run build:icon && vite build",
+    "build:page": "npm run build:icon && vite build",
     "build:icon": "node ./scripts/build.mjs",
     "clear": "rimraf src/icons/*.tsx src/icon.tsx src/*.json"
   },
