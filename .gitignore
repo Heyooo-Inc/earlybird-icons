@@ -8,7 +8,7 @@ node_modules/
 src/icons/*.svg
 src/icons/*.tsx
 src/icons/*.ts
-src/*.tsx
+src/icon.tsx
 src/*.json
 build/
 lib/

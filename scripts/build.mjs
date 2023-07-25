@@ -18,7 +18,7 @@ for (const type of TYPES) {
 
   for (const category of categories) {
     const catDir = resolve(_dir, category)
-    const svgFiles = readdirSync(catDir)
+    const svgFiles = readdirSync(catDir).filter(f => f.endsWith('.svg'))
     const _json = []
 
     for (const svgFile of svgFiles) {
