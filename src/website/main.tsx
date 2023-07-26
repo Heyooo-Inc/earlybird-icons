@@ -18,7 +18,7 @@ const App = () => {
 					<div className="py-8 flex items-center justify-between">
 						<a href="/" className="text-2xl">EarlyBird Icons</a>
 
-						<a href="/https://github.com/Heyooo-Inc/earlybird-icons">
+						<a href="https://github.com/Heyooo-Inc/earlybird-icons">
 							<IconBrandGithub />
 						</a>
 					</div>
