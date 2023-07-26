@@ -38,7 +38,7 @@ import { classnames }  from '../classnames'
 
 export const ${iconName}: FC<SVGProps<SVGSVGElement>> = ({ className, ...restProps }) => {
   return (
-    ${stringify(svg).replace('{...props}=""', `className={classnames('${_className}', className)} {...restProps}`)}
+    ${stringify(svg).replace('{...props}=""', `role="img" aria-label="${name.toLowerCase()}" className={classnames('${_className}', className)} {...restProps}`)}
   )
 }
 `
