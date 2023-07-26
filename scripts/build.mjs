@@ -17,6 +17,10 @@ for (const type of TYPES) {
   const json = []
 
   for (const category of categories) {
+    if (category.startsWith('.')) {
+      continue
+    }
+
     const catDir = resolve(_dir, category)
     const svgFiles = readdirSync(catDir).filter(f => f.endsWith('.svg'))
     const _json = []

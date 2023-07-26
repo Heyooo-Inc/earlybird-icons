@@ -47,7 +47,7 @@ export const IconList: FC<IconListProps> = ({ query, type }) => {
   }
 
   return (
-    <div className="space-y-[60px] pt-[20px] pb-[80px]">
+    <div className="space-y-[60px] pt-[40px] pb-[80px]">
       {list.map(({category, icons}) => (
         <div key={category}>
           <div className="text-xl text-gray-900">{category}</div>

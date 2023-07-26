@@ -30,7 +30,7 @@ export const SearchBar: FC<SearchBarProps> = ({ type, onTypeChange, onQueryChang
   }
 
   return (
-    <div className="px-4 py-2 border border-gray-200 rounded-xl gap-5 flex items-center">
+    <div className="mt-[40px] px-4 py-2 border border-gray-200 rounded-xl gap-5 flex items-center">
       <Icon className="w-5 h-5 text-gray-600" name="search-line" />
       <input className="flex-1 !outline-none" placeholder="Search icons" onChange={handleInputChange} />
       <select value={type} onChange={handleSelectChange}>
