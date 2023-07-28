@@ -42,7 +42,7 @@ export const IconList: FC<IconListProps> = ({ query, type }) => {
     toast(`${name} copied`, {
       id: 'toast-copied',
       className: 'text-sm',
-      icon: '👏'
+      icon: <Icon name="${name}" />
     })
   }
 
