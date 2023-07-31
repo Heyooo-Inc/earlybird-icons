@@ -27,17 +27,17 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
-    "@heyooo-inc/utils": "^0.0.8",
-    "copy-to-clipboard": "^3.3.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-hot-toast": "^2.4.1"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@heyooo-inc/utils": "^0.0.8",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.2.7",
     "autoprefixer": "^10.4.14",
+    "copy-to-clipboard": "^3.3.3",
     "postcss": "^8.4.24",
+    "react-hot-toast": "^2.4.1",
     "rimraf": "^5.0.1",
     "svgo": "^3.0.2",
     "svgson": "^5.2.1",
