@@ -37,7 +37,7 @@ export const IconList: FC<IconListProps> = ({ query, type }) => {
   }, [type, query])
 
   function handleClick(name: string) {
-    copy(`<Icon name="${name}" />`)
+    copy(name)
 
     toast(`${name} copied`, {
       id: 'toast-copied',
