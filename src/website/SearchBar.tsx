@@ -36,6 +36,7 @@ export const SearchBar: FC<SearchBarProps> = ({ type, onTypeChange, onQueryChang
       <select value={type} onChange={handleSelectChange}>
         <option value="line">Line</option>
         <option value="solid">Solid</option>
+        <option value="color">Mutilcolor</option>
       </select>
     </div>
   )

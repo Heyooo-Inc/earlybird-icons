@@ -1,9 +1,9 @@
 import { parse, stringify } from 'svgson'
 import { isValidArray, toCamelCase } from './helper.mjs'
 
-function parseNodeChildren(node) {
+function parseNodeChildren(type, node) {
   if (isValidArray(node.children)) {
-    node.children.forEach(parseNodeChildren)
+    node.children.forEach(n => parseNodeChildren(type, n))
   }
 
   Object.keys(node.attributes).forEach(key => {
@@ -14,23 +14,25 @@ function parseNodeChildren(node) {
       delete node.attributes[key]
     }
 
-    if ((key === 'fill' || key === 'stroke') && value === 'black') {
-      node.attributes[key] = 'currentColor'
+    if (type !== 'color') {
+      if ((key === 'fill' || key === 'stroke') && value === 'black') {
+        node.attributes[key] = 'currentColor'
+      }
     }
   })
 }
 
-async function parseSvg(name, content) {
+async function parseSvg(type, content) {
   const node = await parse(content)
 
   node.attributes['{...props}'] = ''
-  node.children.forEach(parseNodeChildren)
+  node.children.forEach(n => parseNodeChildren(type, n))
 
   return node
 }
 
-export async function svgReactComponent(name, iconName, content) {
-  const svg = await parseSvg(name, content)
+export async function svgReactComponent(type, name, iconName, content) {
+  const svg = await parseSvg(type, content)
   const _className = `icon icon-earlybird icon-earlybird-${name.toLowerCase()}`
 
   return `import { FC, SVGProps } from 'react'

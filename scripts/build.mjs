@@ -7,7 +7,7 @@ import { buildComponent } from './component.mjs'
 
 const HOME_DIR = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const ICONS_DIR = resolve(HOME_DIR, 'icons')
-const TYPES = ['line', 'solid']
+const TYPES = ['line', 'solid', 'color']
 const index = []
 const icons = []
 
@@ -30,7 +30,7 @@ for (const type of TYPES) {
       const iconName = toPascalCase(`icon-${name}`)
       const content = readFile(resolve(catDir, svgFile))
 
-      const component = await svgReactComponent(name, iconName, content)
+      const component = await svgReactComponent(type, name, iconName, content)
 
       writeFileSync(resolve(HOME_DIR, `src/icons/${iconName}.tsx`), component)
 

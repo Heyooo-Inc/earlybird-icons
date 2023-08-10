@@ -5,6 +5,7 @@ import copy from 'copy-to-clipboard'
 
 import LineIcons from '../line.json'
 import SolidIcons from '../solid.json'
+import ColorIcons from '../color.json'
 import { Icon } from '../icon'
 
 interface IconListProps {
@@ -12,9 +13,15 @@ interface IconListProps {
   query?: string
 }
 
+const ICON_LIST: Record<string, typeof LineIcons> = {
+  line: LineIcons,
+  solid: SolidIcons,
+  color: ColorIcons
+}
+
 export const IconList: FC<IconListProps> = ({ query, type }) => {
   const list = useMemo(() => {
-    const _list = type === 'line' ? LineIcons : SolidIcons
+    const _list = ICON_LIST[type]
 
     if (isValid(query)) {
       return _list
@@ -60,7 +67,7 @@ export const IconList: FC<IconListProps> = ({ query, type }) => {
                 onClick={() => handleClick(icon.name)}
               >
                 <div className="w-[40px] h-[40px] flex items-center justify-center">
-                  <Icon name={icon.name} />
+                  <Icon className="w-[28px] h-[28px]" name={icon.name} />
                 </div>
                 <div className="w-full truncate text-xs text-gray-500 text-center">{icon.name}</div>
               </div>
